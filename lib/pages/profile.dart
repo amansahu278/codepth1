@@ -14,6 +14,7 @@ class _ProfileState extends State<Profile> {
   @override
   void initState() {
     super.initState();
+    print(onWatch);
   }
 
   customFav(Product product){
@@ -57,13 +58,17 @@ class _ProfileState extends State<Profile> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text("ON watch:", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),),
-            Expanded(
-              child: Container(
-                child: ListView.builder(
-                  itemCount: onWatch.length,
-                  itemBuilder: (context, index){
-                    return customFav(onWatch[index]);
-                  },
+            SizedBox(height: 10,),
+            onWatch == null || onWatch.length == 0 ? Text("Nothing selected yet") :Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Container(
+                  child: ListView.builder(
+                    itemCount: onWatch.length,
+                    itemBuilder: (context, index){
+                      return customFav(onWatch[index]);
+                    },
+                  ),
                 ),
               ),
             )

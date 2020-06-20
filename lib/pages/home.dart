@@ -155,6 +155,7 @@ class _HomeState extends State<Home> {
         actions: <Widget>[
           IconButton(
             onPressed: (){
+              onWatch = s.faves;
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => Profile()));
             },
             icon: Icon(Icons.account_circle),
