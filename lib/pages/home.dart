@@ -15,7 +15,6 @@ class _HomeState extends State<Home> {
   TextEditingController searchController = new TextEditingController();
   bool isLoading = true;
   GlobalKey<ScaffoldState> _key = GlobalKey();
-  bool isSelecting = false;
 
   @override
   void initState() {
@@ -70,16 +69,11 @@ class _HomeState extends State<Home> {
         onTap: (){
           Navigator.push(context, MaterialPageRoute(builder: (context) => Details(product)));
         },
-        onLongPress: (){
-          setState(() {
-            isSelected = true;
-          });
-        },
         child: Container(
           height: 80,
           width: 200,
           decoration: BoxDecoration(
-            color: isSelecting ? Colors.blue : null,
+//            color: isSelecting ? Colors.blue : null,
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
               color: Colors.black
@@ -168,10 +162,6 @@ class _HomeState extends State<Home> {
         ],
       ),
       body: isLoading ? Center(child: CircularProgressIndicator()) : buildBody(),
-      floatingActionButton: isSelecting ? FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColor,
-        child: Icon(Icons.add,),
-      ) : null
     );
   }
 }
